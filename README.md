@@ -1,6 +1,8 @@
 # Seamless Scraper
 
-Scrape menu items, popular items, addresses, etc from Seamless restaurant pages
+Scrape menu items, popular items, addresses, etc from Seamless restaurant pages.
+Given lists of lat lng pairs, it will pull all restaurants within a set distance.
+
 
 ## CLI Usage
 ```sh
