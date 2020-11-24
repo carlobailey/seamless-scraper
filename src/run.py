@@ -16,13 +16,14 @@ def main(args):
                '&longitude=%s&preciseLocation=true&sorts=distance&radius=1')
         pc = PageCrawler(url, headless=True, lat=lat, lng=lng, ll=5, ul=15)
         data = pc.crawl_page()
-        try:
-            frame = pd.DataFrame(data)
-            dfs.append(frame)
-        except:
-            print("Error for %s location was skipped" % point)
-            errors += 1
-            continue
+        if data is not None:
+            try:
+                frame = pd.DataFrame(data)
+                dfs.append(frame)
+            except:
+                print('Error creating final dataframe')
+                errors += 1
+                continue
         print("process complete! there were %s errors." % errors)
     pd.concat(dfs).to_csv('%s.csv' % args.filename, index=False)
 
