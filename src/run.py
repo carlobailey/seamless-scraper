@@ -8,6 +8,7 @@ def main(args):
     coords = args.coords
     coords = zip(coords[0::2], coords[1::2])
     errors = 0
+    dfs = []
     for point in coords:
         lng = point[1]
         lat = point[0]
